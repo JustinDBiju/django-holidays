@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+
+</head>
+<body>
+  <div class="home-container">
+    <h2>Welcome {{ username }}</h2>
+    <form action="{% url 'accounts:logout' %}" method="post">
+      {% csrf_token %}
+      <button class="logout-btn" type="submit">Logout</button>
+    </form>
+
+    <h3>Upcoming Public Holidays in India (2025)</h3>
+
+    {% if error_message %}
+      <p style="color:red;">{{ error_message }}</p>
+    {% endif %}
+
+    {% if holidays %}
+      <ul class="holiday-list">
+        {% for holiday in holidays %}
+          <li><strong>{{ holiday.date }}</strong> — {{ holiday.localName }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No holidays to show.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

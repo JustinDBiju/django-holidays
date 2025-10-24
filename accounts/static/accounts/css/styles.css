@@ -1,0 +1,235 @@
+/* ===== GLOBAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    /* CRITICAL: Set body as the reference for absolute positioning */
+    position: relative; 
+}
+
+/* ===== CONTAINER (Card Style) ===== */
+.container {
+    background: #fff;
+    padding: 40px 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ===== HEADINGS ===== */
+h2, h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+    font-weight: 600;
+}
+
+/* ===== LABELS ===== */
+label {
+    display: block;
+    font-weight: 500;
+    color: #444;
+    margin-top: 15px;
+}
+
+/* ===== INPUTS ===== */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* ===== BUTTON (General Primary Button) ===== */
+button {
+    width: 100%;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #00aaff);
+}
+
+/* ===== LINKS ===== */
+p {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+    font-size: 15px;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* ===== MESSAGES ===== */
+.messages {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.messages li {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.messages li.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.messages li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ===== HOME PAGE CONTAINER ===== */
+.home-container {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+
+/* -------------------------------------------
+   LOGOUT BUTTON STYLES (Small and Animated)
+   ------------------------------------------- */
+.logout-btn {
+    /* UPDATED: More distinct red gradient */
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    border: none;
+    
+    /* CRITICAL FIX: Overrides the generic 'button { width: 100%; }' rule */
+    width: auto; 
+    margin: 0; 
+    
+    /* Made smaller */
+    padding: 7px 14px; 
+    font-size: 0.85rem; /* Smaller font */
+    
+    border-radius: 20px; /* Highly rounded for distinct look */
+    font-weight: 600;
+    cursor: pointer;
+    
+    /* Added hover transitions */
+    transition: background 0.3s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #96281b); /* Darker on hover */
+    transform: translateY(-2px); /* More pronounced lift effect */
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* -------------------------------------------
+   LOGOUT BUTTON POSITIONING (Top Right)
+------------------------------------------- */
+.logout-btn-wrapper {
+    /* Positions the button relative to the 'body' (which now has position: relative) */
+    position: absolute;
+    top: 20px;   /* Distance from the top edge */
+    right: 20px; /* Distance from the right edge */
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+
+/* ===== HOLIDAY LIST ===== */
+.holiday-list {
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.holiday-list li {
+    background: #f4f9ff;
+    border-left: 5px solid #007bff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.holiday-list li:hover {
+    transform: translateX(5px);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .container, .home-container {
+        padding: 30px 25px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    /* Move the button closer to the corner on small screens */
+    .logout-btn-wrapper {
+        top: 50px;
+        right: 40px;
+    }
+}

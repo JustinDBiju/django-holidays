@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+    {% if messages %}
+      <ul class="messages">
+      {% for msg in messages %}
+        <li class="{{ msg.tags }}">{{ msg }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <label>Username</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+      <label>Email</label>
+      {{ form.email }}
+      {{ form.email.errors }}
+      <label>Phone</label>
+      <input type="text" name="phone" required value="{{ form.phone.value|default:'' }}">
+      {% if form.errors.phone %}<div class="error">{{ form.errors.phone }}</div>{% endif %}
+      <label>Password</label>
+      {{ form.password }}
+      {{ form.password.errors }}
+      <label>Confirm Password</label>
+      {{ form.confirm_password }}
+      {{ form.confirm_password.errors }}
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'accounts:login' %}">Login</a></p>
+  </div>
+</body>
+</html>
