@@ -7,10 +7,6 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def create_profile_and_send_email(sender, instance, created, **kwargs):
-    """
-    Creates a Profile and sends a welcome email only when a new User is created (registered).
-    Updates the Profile on subsequent User saves.
-    """
     
     # --- Logic for New User Creation (Registration) ---
     if created:
